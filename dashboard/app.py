@@ -93,7 +93,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("👨‍⚕️ Top Doctors")
     if not df_docs.empty:
-        st.bar_chart(df_docs.set_index("doctor_first_name")["revenue"])
+        st.bar_chart(df_docs.set_index("doctor_first_name")["amount"])
     else:
         st.info("No data available")
 
