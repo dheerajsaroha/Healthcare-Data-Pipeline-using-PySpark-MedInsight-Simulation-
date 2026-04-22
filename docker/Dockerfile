@@ -9,6 +9,6 @@ RUN apt-get update && apt-get install -y \
 ENV JAVA_HOME=/usr/lib/jvm/default-java
 
 # Install dependencies
-RUN pip install pyspark pandas sqlalchemy psycopg2-binary
+RUN pip install pyspark pandas sqlalchemy psycopg2-binary flask streamlit requests
 
 WORKDIR /app

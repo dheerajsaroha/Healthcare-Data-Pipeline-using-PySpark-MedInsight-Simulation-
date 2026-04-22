@@ -15,8 +15,8 @@ services:
     container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Hrhk@9090
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
       POSTGRES_DB: healthcare
     ports:
       - "5433:5432"
@@ -28,12 +28,39 @@ services:
     container_name: pgadmin-ui
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: dheerajsaroha2892002@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: Hrhk@9090
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
     depends_on:
       - postgres
+
+  api:
+    build: ./docker
+    container_name: flask-api
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      - PYTHONPATH=/app
+    command: python api/app.py
+    ports:
+      - "5000:5000"
+    depends_on:
+      - spark
+  dashboard:
+    build: ./docker
+    container_name: streamlit-ui
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      - PYTHONPATH=/app
+    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
 
 volumes:
   pgdata:
