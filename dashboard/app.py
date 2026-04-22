@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API = "http://api:5000"
+API = "https://healthcare-api-aygp.onrender.com"
 
 st.set_page_config(page_title="Healthcare Dashboard", layout="wide")
 st.title("🏥 Healthcare Analytics Dashboard")
