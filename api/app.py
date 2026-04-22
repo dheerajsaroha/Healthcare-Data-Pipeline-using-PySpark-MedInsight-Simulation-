@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from pipeline.ingestion import create_spark, load_data
+# from pipeline.ingestion import create_spark, load_data
 from pipeline.transformation import transform_data
 from pyspark.sql.functions import sum, col, count, to_date
 import pandas as pd
