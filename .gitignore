@@ -212,5 +212,5 @@ __pycache__/
 .vscode/
 .idea/
 logs/
-data/processed/
+# data/processed/
 *.log
