@@ -127,6 +127,7 @@ if __name__ == "__main__":
     validate_data(data)
     transformed_df = transform_data(data)
     print("\n=== TRANSFORMED DATA ===")
-    print(transformed_df.show(5))
+    # print(transformed_df.show(5))
+    transformed_df.toPandas().to_csv("data/processed/final_data.csv", index=False)
     compute_kpis(transformed_df)
 
