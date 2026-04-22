@@ -115,7 +115,7 @@ st.divider()
 st.subheader("📈 Revenue Trend")
 
 if not df_trend.empty:
-    st.line_chart(df_trend.set_index("appointment_date")["revenue"])
+    st.line_chart(df_trend.set_index("appointment_date")["amount"])
 else:
     st.info("No trend data available")
 
