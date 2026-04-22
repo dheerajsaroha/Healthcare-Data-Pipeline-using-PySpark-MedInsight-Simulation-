@@ -1,20 +1,20 @@
 from flask import Flask, jsonify, request
-# from pipeline.ingestion import create_spark, load_data
+from pipeline.ingestion import create_spark, load_data
 from pipeline.transformation import transform_data
 from pyspark.sql.functions import sum, col, count, to_date
 import pandas as pd
 
 app = Flask(__name__)
 
-# try:
-#     spark = create_spark()
-#     data = load_data(spark)
-#     df = transform_data(data)
-# except Exception as e:
-#     print("Startup Error:", e)
-#     df = None
+try:
+    spark = create_spark()
+    data = load_data(spark)
+    df = transform_data(data)
+except Exception as e:
+    print("Startup Error:", e)
+    df = None
 
-df = pd.read_csv("data/processed/final_data.csv")
+# df = pd.read_csv("data/processed/final_data.csv")
     
 
 # Ensure date column is usable
