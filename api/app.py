@@ -88,5 +88,7 @@ def trend():
 
     return result.to_json(orient="records")
 
+print("🚀 Starting Flask API...")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
